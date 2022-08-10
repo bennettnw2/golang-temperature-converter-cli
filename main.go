@@ -23,9 +23,15 @@ func main() {
 	}
 	originUnit = strings.ToUpper(os.Args[1])
 
+	if originUnit == "C" {
+		convertToFahrenheit(originValue)
+	} else {
+		convertToCelsius(originValue)
+	}
+
 	for {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
-		fmt.Scanln(&originValue)
+		_, err = fmt.Scanln(&originValue)
 
 		fmt.Print("Would you like to convert another temperature ? (y/n) ")
 
